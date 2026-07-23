@@ -18,7 +18,7 @@ class Program
 
     static void PrintData(List<Student_Data> studentData)
     {
-        Console.WriteLine($"Average: {Math.Round(CalculateAverage(studentData), 2)}");
+        Console.WriteLine($"Average: {Math.Round(ClassAverage(studentData), 2)}");
         Console.WriteLine($"Top Student: {GetTopStudent(studentData).Name}");
         Console.WriteLine($"Passing Amount: {PassingStudentCount(studentData)}");
 
@@ -29,15 +29,14 @@ class Program
         }
     }
 
-    static double CalculateAverage(List<Student_Data> studentData)
+    static double ClassAverage(List<Student_Data> studentData)
     {
         double total = 0;
 
-        foreach (var a in studentData)
+        foreach (var studentScore in studentData)
         {
-            total += a.Average();
+            total += studentScore.Average();
         }
-
         return total / studentData.Count;
     }
 
